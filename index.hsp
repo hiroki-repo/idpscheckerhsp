@@ -122,16 +122,17 @@ if idpsslice="0C" and i=6 and model=0{model=0:region=12 }
 if idpsslice="0D" and i=6 and model=0{model=0:region=13 }
 if idpsslice="0E" and i=6 and model=0{model=0:region=14 }
 if idpsslice="0F" and i=6 and model=0{model=0:region=15 }
-if idpsslice="00" and i=7 and model=0{idpsslice=strmid(idps,(5-1)*2,2):if idpsslice="01"{idpsslice=strmid(idps,(8-1)*2,2):if strmid(idps,(6-1)*2,1)="8"{model=4
+if idpsslice="00" and i=7 and model=0{idpsslice=strmid(idps,(5-1)*2,2):if idpsslice="01"{idpsslice=strmid(idps,(8-1)*2,2):if strmid(idps,(6-1)*2,1)="8"{//model=4
 
 }else{model=2
 
 }}}
-if idpsslice="02" and i=7 and model=0{idpsslice=strmid(idps,(5-1)*2,2):if idpsslice="01"{idpsslice=strmid(idps,(8-1)*2,2):if strmid(idps,(6-1)*2,1)="8"{model=4
+if idpsslice="02" and i=7 and model=0{idpsslice=strmid(idps,(5-1)*2,2):if idpsslice="01"{idpsslice=strmid(idps,(8-1)*2,2):if strmid(idps,(6-1)*2,1)="8"{//model=4
 
 }else{model=3
 
 }}}
+if strmid(idps,(5-1)*2,2)="01" and i=10 and model=1{model=4}
 if i=8 {boardrevision=int ("$" + idpsslice)}
 if i=9 {chcheck=(int("$" + idpsslice))/4}
 next
