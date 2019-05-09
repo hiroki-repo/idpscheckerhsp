@@ -1,0 +1,127 @@
+//80-AVTD  82-DEXRF 83-CEXJP 84-CEXUS 85-CEXEU 86-CEXKR 87-CEXUK 88-CEXMX 89-CEXAU  8A-CEXSA 8B-CEXTW 8C-CEXRU
+//8D-CEXCN 8E=CEXHK 8F-CEXBZ A0-GEXRF 01-PSPDT 02-PSPTS 03-PSPJP 04-PSPUS 05-PSPEUK 06-PSPKR 07-PSPUK 08-PSPMX
+//09-PSPNZ 0A-PSPSG 0B-PSPTW 0C-PSPRU 0D-PSPCN 0E-PSPAT
+cmdopts="":cmdopt=dir_cmdline:if strmid(cmdopt,0,1)=" "{cmdopts=strmid(cmdopt,1,512)}else{cmdopts=cmdopt}
+idps="0000000100A000040400041B13AB4625"
+idps=cmdopts
+sdim regionstr,256,257
+sdim modelstr,256,257
+sdim boardrevisionstr,256,257,257
+boardrevisionstr(1,0)="PSP-1000 (TA-079/TA-081)"
+boardrevisionstr(2,0)="PSP-1000 (TA-082/TA-086)"
+boardrevisionstr(3,0)="PSP-2000 (TA-085/TA-088)"
+boardrevisionstr(4,0)="PSP-3000 (TA-090/TA-092)"
+boardrevisionstr(5,0)="PSP-N1000(PSP Go) (TA-091)"
+boardrevisionstr(6,0)="PSP-3000 (TA-093)"
+boardrevisionstr(8,0)="PSP-3000 (TA-095)"
+boardrevisionstr(9,0)="PSP-E1000(PSP Street) (TA-096/TA-097)"
+
+boardrevisionstr(1,1)="CECHA(PS3 Fat) (COK-001/TMU-520)"
+boardrevisionstr(2,1)="CECHB(PS3 Fat) (COK-001)"
+boardrevisionstr(3,1)="CECHC(PS3 Fat) (COK-002)"
+boardrevisionstr(4,1)="CECHE(PS3 Fat) (COK-002)"
+boardrevisionstr(5,1)="CECHG(PS3 Fat) (SEM-001)"
+boardrevisionstr(6,1)="CECHH(PS3 Fat) (DIA-001)"
+boardrevisionstr(7,1)="CECHJ/K(PS3 Fat) (DIA-002)"
+boardrevisionstr(8,1)="CECHL/M/P/Q(PS3 Fat) (VER-001)"
+boardrevisionstr(9,1)="CECH20xx(PS3 Slim) (DYN-001)"
+boardrevisionstr(10,1)="CECH21xx(PS3 Slim) (SUR-001)"
+boardrevisionstr(11,1)="CECH25xx(PS3 Slim) (JTP-001/JSD-001)"
+boardrevisionstr(12,1)="CECH30xx(PS3 Slim) (KTE-001)"
+boardrevisionstr(13,1)="CECH40xx(PS3 Slim) (MPX-001/MSX-001)"
+
+boardrevisionstr(0x10,2)="PCH-1000/1100(PSVita Fat) (IRS-002)"
+boardrevisionstr(0x14,2)="PCH-2000(PSVita Slim) (USS-1001)"
+boardrevisionstr(0x18,2)="PCH-2000(PSVita Slim) (USS-1001)"
+modelstr(0)="PSP"
+modelstr(1)="PS3"
+modelstr(2)="PSVita"
+modelstr(3)="PS TV"
+modelstr(4)="PS4"
+i=i+1:regionstr(i)="PSP Development Tool"
+i=i+1:regionstr(i)="PSP Testing Tool"
+i=i+1:regionstr(i)="Japan"
+i=i+1:regionstr(i)="USA"
+i=i+1:regionstr(i)="EU UK"
+i=i+1:regionstr(i)="Korea"
+i=i+1:regionstr(i)="UK"
+i=i+1:regionstr(i)="Mexico"
+i=i+1:regionstr(i)="Austraria"
+i=i+1:regionstr(i)="Hong Kong"
+i=i+1:regionstr(i)="Taiwan"
+i=i+1:regionstr(i)="Russia"
+i=i+1:regionstr(i)="China"
+i=i+1:regionstr(i)="AVTest"
+
+i=0x80:regionstr(i)="AVTest(DECHS)"//80
+i=i+1:regionstr(i)="Reference Tool / System Debug (DECR)"//81
+i=i+1:regionstr(i)="Debug(DECH)"//82
+i=i+1:regionstr(i)="Japan"//83
+i=i+1:regionstr(i)="USA"//84
+i=i+1:regionstr(i)="EU UK"//85
+i=i+1:regionstr(i)="Korea"//86
+i=i+1:regionstr(i)="UK"//87
+i=i+1:regionstr(i)="Mexico"//88
+i=i+1:regionstr(i)="Austraria"//89
+i=i+1:regionstr(i)="South Asia"//8a
+i=i+1:regionstr(i)="Taiwan"//8b
+i=i+1:regionstr(i)="Russia"//8c
+i=i+1:regionstr(i)="China"//8d
+i=i+1:regionstr(i)="Hong Kong"//8e
+i=i+1:regionstr(i)="Brazil"//8f
+i=0xA0:regionstr(i)="GEX S357/S369(GECR)"//80
+//input idps
+model=0:region=0:boardrevision=0:chcheck=0:for i,1,17,1
+idpsslice=strmid(idps,(i-1)*2,2)
+if idpsslice="A0" and i=6 and model=0{model=1:region=0xA0}
+if idpsslice="80" and i=6 and model=0{model=1:region=0x80}
+if idpsslice="81" and i=6 and model=0{model=1:region=0x81}
+if idpsslice="82" and i=6 and model=0{model=1:region=0x82}
+if idpsslice="83" and i=6 and model=0{model=1:region=0x83}
+if idpsslice="84" and i=6 and model=0{model=1:region=0x84}
+if idpsslice="85" and i=6 and model=0{model=1:region=0x85}
+if idpsslice="86" and i=6 and model=0{model=1:region=0x86}
+if idpsslice="87" and i=6 and model=0{model=1:region=0x87}
+if idpsslice="88" and i=6 and model=0{model=1:region=0x88}
+if idpsslice="89" and i=6 and model=0{model=1:region=0x89}
+if idpsslice="8A" and i=6 and model=0{model=1:region=0x8A}
+if idpsslice="8B" and i=6 and model=0{model=1:region=0x8B}
+if idpsslice="8C" and i=6 and model=0{model=1:region=0x8C}
+if idpsslice="8D" and i=6 and model=0{model=1:region=0x8D}
+if idpsslice="8E" and i=6 and model=0{model=1:region=0x8E}
+if idpsslice="8F" and i=6 and model=0{model=1:region=0x8F}
+if idpsslice="00" and i=6 and model=0{model=0:region=0  }
+if idpsslice="01" and i=6 and model=0{model=0:region=1  }
+if idpsslice="02" and i=6 and model=0{model=0:region=2  }
+if idpsslice="03" and i=6 and model=0{model=0:region=3  }
+if idpsslice="04" and i=6 and model=0{model=0:region=4  }
+if idpsslice="05" and i=6 and model=0{model=0:region=5  }
+if idpsslice="06" and i=6 and model=0{model=0:region=6  }
+if idpsslice="07" and i=6 and model=0{model=0:region=7  }
+if idpsslice="08" and i=6 and model=0{model=0:region=8  }
+if idpsslice="09" and i=6 and model=0{model=0:region=9  }
+if idpsslice="0A" and i=6 and model=0{model=0:region=10 }
+if idpsslice="0B" and i=6 and model=0{model=0:region=11 }
+if idpsslice="0C" and i=6 and model=0{model=0:region=12 }
+if idpsslice="0D" and i=6 and model=0{model=0:region=13 }
+if idpsslice="0E" and i=6 and model=0{model=0:region=14 }
+if idpsslice="0F" and i=6 and model=0{model=0:region=15 }
+if idpsslice="00" and i=7 and model=0{idpsslice=strmid(idps,(5-1)*2,2):if idpsslice="01"{idpsslice=strmid(idps,(8-1)*2,2):if strmid(idps,(6-1)*2,1)="8"{model=4
+
+}else{model=2
+
+}}}
+if idpsslice="02" and i=7 and model=0{idpsslice=strmid(idps,(5-1)*2,2):if idpsslice="01"{idpsslice=strmid(idps,(8-1)*2,2):if strmid(idps,(6-1)*2,1)="8"{model=4
+
+}else{model=3
+
+}}}
+if i=8 {boardrevision=int ("$" + idpsslice)}
+if i=9 {chcheck=(int("$" + idpsslice))/4}
+next
+
+mes idps
+mes "Console Type:"+modelstr(model)
+mes "Region:"+regionstr(region)
+mes "Motherboard:"+boardrevisionstr(boardrevision,model)
+mes "Chassis Check:"+strmid(idps,(9-1)*2,4)+"("+chcheck+")"
